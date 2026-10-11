@@ -1,0 +1,67 @@
+[
+  {
+    "tnea_application_number": "XYZ2026001",
+    "full_name": "Karthikeyan S",
+    "date_of_birth": "2008-05-14",
+    "email": "karthik.xyz2026001@demo.admissionai.local",
+    "mobile": "+91 98765 43210",
+    "community": "BC",
+    "allotted_branch": "Computer Science and Engineering",
+    "quota": "General",
+    "status": "ACTIVATED",
+    "completion_percentage": 25,
+    "scenario_notes": "Persona 1: Normal path - Account activated, ready to fill application form."
+  },
+  {
+    "tnea_application_number": "XYZ2026002",
+    "full_name": "Ananya Ramesh",
+    "date_of_birth": "2008-08-22",
+    "email": "ananya.xyz2026002@demo.admissionai.local",
+    "mobile": "+91 98765 43211",
+    "community": "OC",
+    "allotted_branch": "Electronics and Communication Engineering",
+    "quota": "General",
+    "status": "APPLICATION_IN_PROGRESS",
+    "completion_percentage": 60,
+    "scenario_notes": "Persona 2: Application partially completed, documents pending upload."
+  },
+  {
+    "tnea_application_number": "XYZ2026003",
+    "full_name": "Praveen Kumar M",
+    "date_of_birth": "2007-11-03",
+    "email": "praveen.xyz2026003@demo.admissionai.local",
+    "mobile": "+91 98765 43212",
+    "community": "MBC",
+    "allotted_branch": "Information Technology",
+    "quota": "First Graduate",
+    "status": "APPLICATION_SUBMITTED",
+    "completion_percentage": 100,
+    "scenario_notes": "Persona 3: Application fully submitted, awaiting document verification queue."
+  },
+  {
+    "tnea_application_number": "XYZ2026004",
+    "full_name": "Divya Bharathi K",
+    "date_of_birth": "2008-02-18",
+    "email": "divya.xyz2026004@demo.admissionai.local",
+    "mobile": "+91 98765 43213",
+    "community": "SC",
+    "allotted_branch": "Artificial Intelligence and Data Science",
+    "quota": "7.5% Govt School",
+    "status": "ACTIVATION_PENDING",
+    "completion_percentage": 0,
+    "scenario_notes": "Persona 4: Fresh allotment, candidate has not activated portal credentials yet."
+  },
+  {
+    "tnea_application_number": "XYZ2026005",
+    "full_name": "Mohammed Riyaz A",
+    "date_of_birth": "2008-07-30",
+    "email": "riyaz.xyz2026005@demo.admissionai.local",
+    "mobile": "+91 98765 43214",
+    "community": "BCM",
+    "allotted_branch": "Electrical and Electronics Engineering",
+    "quota": "General",
+    "status": "DOCUMENT_REVIEW",
+    "completion_percentage": 100,
+    "scenario_notes": "Persona 5: Under human verification review desk."
+  }
+]

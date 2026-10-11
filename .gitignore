@@ -1,0 +1,97 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+venv/
+ENV/
+
+# Databases
+*.sqlite3
+*.db
+
+# Node / Frontend
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+dist/
+dist-ssr/
+*.local
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ===== Exclude non-application files =====
+
+# Documents — PDFs, PPTs, DOCX, HTML exports
+*.pdf
+*.pptx
+*.ppt
+*.docx
+*.doc
+
+# Presentation / Report building scripts (root level)
+build_*presentation*.py
+build_*slide*.py
+build_study_guide.py
+build_diagrams.py
+capture_actual_screenshots.py
+test_word.*
+
+# Presentation / Report / Reference directories
+PPT_MAKE/
+PPT_PPT/
+FINAL_REPORT/
+Final Report___________________/
+Final_review_documents/
+Report_Maker/
+Refernce/
+
+# Generated assets
+generated_diagrams*/
+diagrams/
+screenshots/
+
+# Backend storage (uploaded files — will be recreated)
+backend/storage/
+
+# Backend venv (if nested)
+backend/venv/
+
+# Gemini / Agent config
+.agents/
+.gemini/

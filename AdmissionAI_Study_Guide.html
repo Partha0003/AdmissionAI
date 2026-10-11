@@ -1,0 +1,718 @@
+<html><head>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11pt; line-height: 1.5; color: #1e293b; margin: 40px; }
+        h1 { font-size: 24pt; color: #0f172a; border-bottom: 2px solid #2563eb; padding-bottom: 10px; margin-top: 0; }
+        h2 { font-size: 18pt; color: #1d4ed8; margin-top: 20px; }
+        h3 { font-size: 14pt; color: #0f766e; margin-top: 15px; }
+        p { margin-bottom: 12px; text-align: justify; }
+        ul, ol { margin-bottom: 12px; padding-left: 20px; }
+        li { margin-bottom: 6px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+        th, td { border: 1px solid #cbd5e1; padding: 10px; text-align: left; }
+        th { background-color: #f1f5f9; font-weight: bold; color: #0f172a; }
+        .page-break { page-break-before: always; }
+        .cover-title { font-size: 32pt; text-align: center; color: #0f172a; margin-top: 150px; font-weight: bold; }
+        .cover-subtitle { font-size: 18pt; text-align: center; color: #2563eb; margin-bottom: 50px; }
+        .cover-details { font-size: 14pt; text-align: center; color: #475569; margin-top: 100px; line-height: 2.0; }
+        .callout { background-color: #f8fafc; border-left: 4px solid #2563eb; padding: 15px; margin-bottom: 15px; }
+        .concept { font-weight: bold; color: #0f172a; }
+    </style>
+    </head><body>
+    <div style="text-align: center; height: 100%;">
+        <div class="cover-title">AdmissionAI</div>
+        <div class="cover-subtitle">OCR-Based Document Intelligence and RAG-Assisted Admission Workflow</div>
+        
+        <div style="margin-top: 80px; font-size: 16pt; color: #0f766e;">M.E. Final-Year Project Study Material & Final Review Guide</div>
+        
+        <div class="cover-details">
+            Student Name: [Your Name]<br>
+            Registration Number: [Reg No]<br>
+            Project Guide: [Guide Name]<br>
+            Department of Computational Intelligence<br>
+            XYZ Engineering College
+        </div>
+        
+        <div style="margin-top: 60px; text-align: justify; padding: 0 40px;">
+            <p><strong>Core Contribution:</strong> AdmissionAI connects TNEA allotment → Digital application → Document intelligence → Human verification → Payment and ERP staging → RAG assistance → Student onboarding into a single unified and auditable workflow.</p>
+            <p><strong>About this Guide:</strong> This material will teach you the entire project from absolute basics. It explains the engineering admission problem, the theoretical concepts behind OCR and RAG, the exact pipeline and technology stack used, and how to defend the project confidently in front of a final review panel.</p>
+        </div>
+    </div>
+    
+    <div class="page-break"></div>
+    <h1>Table of Contents and Learning Roadmap</h1>
+    <p>This guide is structured to take you from a basic understanding of college admissions to an advanced understanding of the AI architecture backing AdmissionAI.</p>
+    
+    <h3>Learning Sequence</h3>
+    <ol>
+        <li><strong>Page 3:</strong> Background: How Engineering College Admission Works</li>
+        <li><strong>Page 4:</strong> The RMK Motivation and Problem Statement</li>
+        <li><strong>Page 5:</strong> Proposed Solution and Uniqueness</li>
+        <li><strong>Page 6:</strong> Complete End-to-End Admission Flow</li>
+        <li><strong>Page 7:</strong> System Architecture and Technology Layers</li>
+        <li><strong>Page 8:</strong> Methodology and Algorithmic Approach</li>
+        <li><strong>Page 9:</strong> OCR Fundamentals from Beginner to Project Level</li>
+        <li><strong>Page 10:</strong> OCR Pipeline Used in AdmissionAI</li>
+        <li><strong>Page 11:</strong> Cross-Document Reconciliation & Human-in-the-Loop</li>
+        <li><strong>Page 12:</strong> RAG Fundamentals from Beginner to Project Level</li>
+        <li><strong>Page 13:</strong> RAG in AdmissionAI: Use Cases and Limitations</li>
+        <li><strong>Page 14:</strong> Technology Stack: What, Why, and Where It Is Used</li>
+        <li><strong>Page 15:</strong> AdmissionAI Compared with Existing Approaches</li>
+        <li><strong>Page 16:</strong> Expected Outcomes, RMK Pitch, and Future Vision</li>
+        <li><strong>Page 17:</strong> Presentation Guide: Slides 1 to 5</li>
+        <li><strong>Page 18:</strong> Presentation Guide: Slides 6 to 10</li>
+        <li><strong>Page 19:</strong> Presentation Guide: Slides 11 to 15</li>
+        <li><strong>Page 20:</strong> Complete Viva Preparation and Quick Revision</li>
+        <li><strong>Appendix A:</strong> 100+ Question Viva Question Bank</li>
+    </ol>
+    
+    <h3>How to Study this Guide</h3>
+    <p>Do not attempt to memorize this entire document. Focus on understanding the <strong>why</strong> behind each step. If you understand why OCR output is insufficient without reconciliation, and why RAG requires authorization boundaries, you will naturally be able to answer any panel question.</p>
+    
+    <div class="page-break"></div>
+    <h1>Background: How Engineering College Admission Works</h1>
+    <p>Before understanding AdmissionAI, you must understand the domain it operates in. The college admission process is complex and strictly regulated.</p>
+    
+    <h3>What is College Admission?</h3>
+    <p>In the context of this project, "college admission" refers to the administrative process where a prospective candidate is formally enrolled into a degree program. It involves verifying the student's eligibility, collecting required records, processing fees, and setting up their institutional identity.</p>
+    
+    <h3>Centralized Counselling and TNEA</h3>
+    <p>Tamil Nadu Engineering Admissions (TNEA) is a centralized counselling authority. TNEA evaluates 12th-grade marks, applies reservation rules, and allocates seats to candidates across various engineering colleges.</p>
+    
+    <div class="callout">
+        <strong>Important Distinction:</strong> TNEA <em>allots</em> the seat. The college must still perform the <em>actual admission</em>. AdmissionAI does not replace TNEA; it manages what happens at the college <em>after</em> the student brings their TNEA allotment order.
+    </div>
+    
+    <h3>The Post-Allotment Journey</h3>
+    <p>When a candidate is allotted to XYZ Engineering College, they must physically (and digitally) report to the college. The college administration must ensure:</p>
+    <ul>
+        <li>The student is exactly who the TNEA allotment says they are.</li>
+        <li>Their academic marks (10th and 12th) match the declared data.</li>
+        <li>Their community, first-graduate, or income certificates are authentic and match the TNEA claim.</li>
+        <li>Transfer certificates (TC) and conduct certificates are secured.</li>
+    </ul>
+    
+    <h3>Why is it complicated?</h3>
+    <p>A candidate's data is fragmented across multiple supporting documents. A human officer must read an Aadhar card, a 10th marksheet, a 12th marksheet, a community certificate, and a TNEA allotment order, cross-checking the name, date of birth, and registration numbers across all of them to ensure consistency. Any mismatch (even a spelling error) requires resolution.</p>
+    
+    <div class="page-break"></div>
+    <h1>The RMK Motivation and Problem Statement</h1>
+    
+    <h3>The Motivation</h3>
+    <p>This project is inspired by the practical admission experience observed at RMK Engineering College. Every year, hundreds of students arrive for admission within a short time window. The process involves checking documents, resolving missing information, answering repetitive queries from parents, processing fees, and communicating onboarding steps.</p>
+    <p>It has been observed that for a single candidate, moving through these uncoordinated steps—document verification, fixing errors, physical verification, fee handling, and waiting for approvals—can take approximately <strong>3 to 4 hours</strong> of candidate waiting and staff processing time.</p>
+    
+    <div class="callout">
+        <strong>Note for the Panel:</strong> This 3–4 hour figure is an observation motivating the project. It highlights the systemic friction of fragmented processes. It is not an officially measured or published baseline metric of RMK Engineering College, but a realistic representation of manual administration.
+    </div>
+    
+    <h3>The Problem Statement</h3>
+    <p>The current college-side admission workflow suffers from the following critical gaps:</p>
+    <ol>
+        <li><strong>Manual Document Scrutiny:</strong> Large volumes of scanned documents require repetitive staff inspection, leading to severe fatigue and oversight. Staff must manually open multiple PDFs to cross-verify names and DOBs against TNEA baselines.</li>
+        <li><strong>Repeated Data Entry:</strong> Duplicate data entry across different portals (application portal, finance portal, ERP) mathematically guarantees an increase in human administrative error.</li>
+        <li><strong>Fragmented Admission Stages:</strong> Application, fee handling, physical verification, and hostel onboarding run on totally isolated software architectures, preventing a unified view of the student's progress.</li>
+        <li><strong>Inconsistent Cross-Document Verification:</strong> A spelling difference between a 10th Marksheet and an Aadhar card might be missed by a tired staff member but caught later, causing administrative headaches.</li>
+        <li><strong>Limited Status Visibility & Repetitive Queries:</strong> Candidates face opaque application progress. Parents rely on endless phone calls or physical visits to resolve status issues and ask basic onboarding questions.</li>
+    </ol>
+    
+    <h3>Why standard OCR isn't enough</h3>
+    <p>If a college simply buys an "OCR tool", they just get the text extracted from the document. The staff still have to manually figure out if that text matches the application form. We need a system that not only extracts the text but mathematically checks it against the baseline and manages the overall workflow.</p>
+    
+    <div class="page-break"></div>
+    <h1>Proposed Solution and Uniqueness</h1>
+    
+    <h3>The Proposed Solution</h3>
+    <p>AdmissionAI is an intelligent college-side admission and onboarding platform. It transforms the admission journey by integrating document intelligence, OCR-based extraction, deterministic cross-document reconciliation, human-controlled verification, and a context-aware RAG assistant into one unified workflow.</p>
+    
+    <h3>Comparison Table: Existing vs AdmissionAI</h3>
+    <table>
+        <tr>
+            <th>Existing Individual Approach</th>
+            <th>AdmissionAI Approach</th>
+        </tr>
+        <tr>
+            <td>Separate tools and manual coordination</td>
+            <td>Connected admission lifecycle (Allotment → Onboarding)</td>
+        </tr>
+        <tr>
+            <td>OCR provides raw, unstructured text blocks</td>
+            <td>Structured fields with bounding-box provenance</td>
+        </tr>
+        <tr>
+            <td>Staff compare documents manually line-by-line</td>
+            <td>Rule-based reconciliation automatically flags discrepancies</td>
+        </tr>
+        <tr>
+            <td>Corrections are tracked separately via emails/calls</td>
+            <td>Versioned records with auditable human decisions</td>
+        </tr>
+        <tr>
+            <td>Repeated questions go to staff via phone</td>
+            <td>Context-bound RAG assistance answers queries securely</td>
+        </tr>
+        <tr>
+            <td>Onboarding is handled by entirely separate systems</td>
+            <td>Connected student and parent onboarding natively</td>
+        </tr>
+    </table>
+    
+    <h3>What Makes AdmissionAI Unique?</h3>
+    <ul>
+        <li><strong>Workflow Integration:</strong> It does not just read documents; it moves the student through strictly gated states (Application → Scrutiny → Physical → ERP).</li>
+        <li><strong>Deterministic Reconciliation:</strong> It uses mathematics to compare extracted values (e.g. checking if the Aadhar DOB equals the 10th Marksheet DOB).</li>
+        <li><strong>Human-in-the-Loop Auditability:</strong> AdmissionAI explicitly <em>does NOT</em> make autonomous admission decisions. It mathematically identifies flags, requiring authorized human staff to resolve them, leaving an immutable audit trail.</li>
+        <li><strong>Context-Bound Security in RAG:</strong> Generic chatbots hallucinate or leak data. AdmissionAI’s RAG methodology enforces strict Role-Based Access Control (RBAC), ensuring students only query their own context and approved institutional knowledge.</li>
+    </ul>
+    
+    <div class="page-break"></div>
+    <h1>Complete End-to-End Admission Flow</h1>
+    <p>AdmissionAI manages the student journey through 13 distinct stages. In our prototype, external dependencies (like TNEA and payment gateways) are mocked via adapters to demonstrate the flow.</p>
+    
+    <ol>
+        <li><strong>TNEA Allotment Intake:</strong> The college system ingests allotment data. In production, this would be an API or secure CSV import. Our prototype uses a `MockTNEAAdapter` with synthetic records.</li>
+        <li><strong>Student Activation:</strong> The candidate uses their TNEA registration number to securely activate their account.</li>
+        <li><strong>Digital Application:</strong> The student fills in missing personal, parent, and academic details.</li>
+        <li><strong>Dynamic Document Checklist:</strong> Based on the student's category (e.g., First Graduate, specific caste), the system dynamically generates a mandatory document upload checklist.</li>
+        <li><strong>Document Upload & Versioning:</strong> The student uploads scanned PDFs/images. The system assigns a secure SHA-256 hash and version number. Uploading does not imply approval.</li>
+        <li><strong>AI Document Intelligence:</strong> The system classifies the document, preprocesses the image using OpenCV, extracts text via an OCR engine, and mathematically reconciles the fields against the application baseline.</li>
+        <li><strong>Human Scrutiny (Human-in-the-loop):</strong> Authorized staff review the AI-flagged discrepancies side-by-side with the original document. They can approve or trigger a correction feedback loop.</li>
+        <li><strong>Physical Verification:</strong> The student visits the campus. Staff verify the original physical documents against the approved digital records.</li>
+        <li><strong>Payment or Demand Draft:</strong> The student submits fee payments, verified by finance staff.</li>
+        <li><strong>ERP Synchronization:</strong> An ERP-ready snapshot is prepared. A mock adapter simulates pushing this to the institutional ERP.</li>
+        <li><strong>Timeline and Notifications:</strong> Throughout the process, the student portal displays real-time state changes and pending actions.</li>
+        <li><strong>RAG Assistant:</strong> The student can ask the AI assistant questions about the workflow, and it responds strictly based on their context and institutional policy.</li>
+        <li><strong>Admission Confirmation & Onboarding:</strong> Upon completion, the student transitions to the onboarding phase (hostel instructions, academic induction).</li>
+    </ol>
+    
+    <div class="page-break"></div>
+    <h1>System Architecture and Technology Layers</h1>
+    <p>AdmissionAI is built as a modular monolith. A layered architecture separates user interaction, business rules, AI processing, and data storage.</p>
+    
+    <h3>Layer 1: Users</h3>
+    <p>Students, Parents/Guardians, Admission Staff, Finance Officers, and Admins interact with the system.</p>
+    
+    <h3>Layer 2: Frontend (Presentation)</h3>
+    <p>Built with React and TypeScript, providing role-based interfaces (e.g., Student Dashboard vs. Scrutiny Dashboard).</p>
+    
+    <h3>Layer 3: API & Security</h3>
+    <p>Powered by FastAPI. Handles JWT authentication, Role-Based Access Control (RBAC), and request validation via Pydantic. It ensures a student cannot access another student's data.</p>
+    
+    <h3>Layer 4: Domain Services (Business Logic)</h3>
+    <p>Manages state machines (ensuring a student cannot jump from Upload directly to ERP Staging), checklists, timeline history, and notification triggers.</p>
+    
+    <h3>Layer 5: Intelligence Services</h3>
+    <p>The AI core. It houses Document Classification, OpenCV preprocessing, OCR execution, Deterministic extraction, Cross-document reconciliation rules, and the RAG engine.</p>
+    
+    <h3>Layer 6: Persistence (Data)</h3>
+    <p>Powered by PostgreSQL. Stores relational data, document version hashes, audit logs, and knowledge-base embeddings.</p>
+    
+    <h3>External Mock Adapters</h3>
+    <p>To ensure future deployability, AdmissionAI does not hardcode integrations. It uses an Adapter Pattern for TNEA Intake, Payments, ERP, and the LLM. In the prototype, these are simulated (Mock Adapters).</p>
+    
+    <div class="page-break"></div>
+    <h1>Methodology and Algorithmic Approach</h1>
+    <p>It is vital to correctly describe the algorithmic approaches used in AdmissionAI. AI is not a magic box; it consists of specific methodologies.</p>
+    
+    <h3>The Overall Methodology</h3>
+    <ol>
+        <li><strong>Workflow Analysis:</strong> Identifying bottlenecks in traditional admission pipelines.</li>
+        <li><strong>Data Modelling & State Machine:</strong> Defining strict allowed transitions for a student application.</li>
+        <li><strong>Document Pipeline Design:</strong> Connecting preprocessing, OCR, and extraction sequentially.</li>
+        <li><strong>Reconciliation Rules:</strong> Creating deterministic mathematical comparisons between extracted text and baseline data.</li>
+        <li><strong>Human Oversight Integration:</strong> Designing the UI to display discrepancies for human decision-making.</li>
+        <li><strong>RAG Grounding:</strong> Ensuring the assistant retrieves context before answering.</li>
+        <li><strong>Mock Validation:</strong> Testing the logic via automated regressions.</li>
+    </ol>
+    
+    <h3>Clarifying the Algorithms</h3>
+    <p>You must understand what category of algorithm each component belongs to:</p>
+    <ul>
+        <li><strong>Document Classification:</strong> Currently <strong>Rule-based</strong> (metadata/heuristics), not a trained visual deep-learning model.</li>
+        <li><strong>Structured Extraction:</strong> <strong>Deterministic</strong>. It uses Regular Expressions (Regex) and coordinate bounding boxes, rather than Generative AI extraction.</li>
+        <li><strong>Cross-Document Reconciliation:</strong> <strong>Rule-based logic</strong>. It mathematically checks if String A == String B.</li>
+        <li><strong>RAG Retrieval:</strong> <strong>Vector similarity search</strong> (K-Nearest Neighbors).</li>
+        <li><strong>LLM Generation:</strong> <strong>Generative AI</strong>, currently utilizing a MockLLM testing harness enforcing negative prompting.</li>
+    </ul>
+    
+    <div class="callout">
+        <strong>Example of the Methodology in Action:</strong> The OCR extracts "DOB: 15-05-2005" from the Aadhar card. The Application baseline says "DOB: 15-06-2005". The Deterministic Reconciliation engine flags a mismatch. The system <em>does not</em> reject the student. It creates a "Discrepancy Flag" for the Human Scrutiny officer, who inspects the original image and makes the final decision.
+    </div>
+    
+    <div class="page-break"></div>
+    <h1>OCR Fundamentals from Beginner to Project Level</h1>
+    
+    <h3>What is OCR?</h3>
+    <p><span class="concept">Optical Character Recognition (OCR)</span> is the technology that converts different types of documents, such as scanned paper documents or PDF files captured by a digital camera, into editable and searchable data.</p>
+    <p>To a computer, a scanned image of a marksheet is just a grid of colored pixels. OCR analyzes these pixels, recognizes the patterns of letters and numbers, and converts them into standard machine-readable text.</p>
+    
+    <h3>The Standard OCR Stages</h3>
+    <ol>
+        <li><strong>Image Acquisition:</strong> The student uploads a scanned document.</li>
+        <li><strong>Image Preprocessing:</strong> The image is cleaned up (deskewed, brightened, noise removed) so the OCR engine has the best chance of reading it accurately.</li>
+        <li><strong>Text Recognition:</strong> The OCR engine matches pixel patterns to characters.</li>
+        <li><strong>Output Generation:</strong> The engine provides the recognized text, along with Confidence Scores and Bounding Boxes (the X/Y coordinates of where the text was found on the page).</li>
+    </ol>
+    
+    <h3>Why is OCR output alone not enough?</h3>
+    <p>Imagine the OCR engine outputs this text block:</p>
+    <pre style="background: #f1f5f9; padding: 10px;">
+    GOVERNMENT OF TAMIL NADU
+    SECONDARY SCHOOL LEAVING CERTIFICATE
+    Name: Example Student
+    Mathematics: 92
+    </pre>
+    <p>This is just a raw string. The admission database requires a structured field: <code>student_name = "Example Student"</code>. Extracting that specific piece of data from the raw text is called <strong>Structured Extraction</strong>.</p>
+    
+    <h3>Common OCR Challenges</h3>
+    <p>OCR is not perfect. It struggles with low-resolution scans, uneven lighting, tilted pages (skew), blurry text, and similar-looking characters (like 'O' and '0'). This is why Human-in-the-Loop verification is absolutely critical.</p>
+    
+    <div class="page-break"></div>
+    <h1>The OCR Pipeline Used in AdmissionAI</h1>
+    <p>AdmissionAI implements a multi-stage Document Intelligence pipeline.</p>
+    
+    <h3>1. Document Classification</h3>
+    <p>The system must know what document it is looking at (e.g., Aadhar vs. 10th Marksheet). The current prototype uses rule-based filename and metadata heuristics. (Training a custom computer vision classifier is a future scope).</p>
+    
+    <h3>2. Image Preprocessing with OpenCV</h3>
+    <p>Before OCR, we use OpenCV (Open Source Computer Vision Library) to prepare the image:</p>
+    <ul>
+        <li><strong>Grayscale Conversion:</strong> Removes color data, simplifying the image.</li>
+        <li><strong>Thresholding (Binarization):</strong> Converts the image to pure black and white, maximizing text contrast.</li>
+        <li><strong>Deskewing:</strong> Rotates slightly tilted images to be perfectly horizontal.</li>
+    </ul>
+    
+    <h3>3. OCR Engine Abstraction</h3>
+    <p>AdmissionAI uses an <strong>engine abstraction layer</strong>. While it supports Tesseract (via pytesseract), the automated tests utilize a <code>Mock OCR Engine</code> to ensure reliable, deterministic testing of the workflow logic without relying on external binaries.</p>
+    
+    <h3>4. Structured Extraction</h3>
+    <p>We use <strong>Deterministic Extraction Rules</strong>. By combining Regular Expressions (Regex) and layout coordinate targets (Bounding Boxes), the system parses the raw text and isolates specific fields like Name, DOB, and Registration Number.</p>
+    
+    <h3>5. Confidence and Provenance</h3>
+    <p>The system stores the confidence score for every extracted field. More importantly, it stores the <strong>provenance</strong>—a record of exactly which document version and coordinate bounding box the data came from, ensuring a clear audit trail.</p>
+    
+    <div class="page-break"></div>
+    <h1>Cross-Document Reconciliation & Human-in-the-Loop</h1>
+    
+    <h3>Why One Document Isn't Enough</h3>
+    <p>In admissions, truth is established through consistency. The student's Name and DOB on the TNEA allotment order must match the Application form, which must match the 10th Marksheet, which must match the Aadhar Card.</p>
+    
+    <h3>Automated Reconciliation</h3>
+    <p>AdmissionAI performs <strong>Cross-Document Reconciliation</strong>. It mathematically compares the extracted fields across all uploaded documents against the baseline application data.</p>
+    <ul>
+        <li><strong>Exact Matching:</strong> Checking registration numbers or dates.</li>
+        <li><strong>Fuzzy Matching / Normalization:</strong> Handling minor formatting differences (e.g., "15-05-2005" vs "15/05/2005").</li>
+    </ul>
+    <p>If the engine detects a mismatch, or if a required field is missing, it generates a <strong>Discrepancy Flag</strong>.</p>
+    
+    <h3>The Human-in-the-Loop Principle</h3>
+    <p>This is the most critical governance principle of AdmissionAI:</p>
+    <div class="callout">
+        <strong>AI assists with extraction and discrepancy detection; authorized staff retain decision-making authority.</strong>
+    </div>
+    <p>The system does not automatically reject a student because of an OCR error or a typo. Instead, the Human Scrutiny module presents the original document image side-by-side with the AI findings. The authorized staff member reviews the flags and makes a cryptographically auditable decision to either Approve, Override, or Request Resubmission from the student.</p>
+    
+    <div class="page-break"></div>
+    <h1>RAG Fundamentals from Beginner to Project Level</h1>
+    
+    <h3>What is an LLM and a Chatbot?</h3>
+    <p>A Large Language Model (LLM) is AI trained to understand and generate human text. A Chatbot is an interface allowing users to converse with the LLM. However, generic LLMs suffer from <strong>Hallucinations</strong>—they confidently invent false information if they don't know the answer, and they do not know private institutional policies.</p>
+    
+    <h3>What is RAG?</h3>
+    <p><span class="concept">Retrieval-Augmented Generation (RAG)</span> solves this problem. It is like giving the AI an open-book exam. Instead of relying on its pre-trained memory, RAG searches a private Knowledge Base for the exact documents needed, and forces the LLM to generate an answer based <em>only</em> on those retrieved documents.</p>
+    
+    <h3>The Standard RAG Pipeline</h3>
+    <ol>
+        <li><strong>Knowledge Base Chunking:</strong> Large policies are broken into smaller chunks and converted into vector embeddings.</li>
+        <li><strong>Retrieval:</strong> When a user asks a question, the system searches for the most mathematically similar chunks of text.</li>
+        <li><strong>Prompt Augmentation:</strong> The system combines the user's question with the retrieved text.</li>
+        <li><strong>Generation:</strong> The LLM generates a response strictly grounded in the provided text.</li>
+        <li><strong>Citation:</strong> The system cites the source chunk to prove accuracy.</li>
+    </ol>
+    
+    <h3>Why is RAG better than training?</h3>
+    <p>Training a model is incredibly expensive and time-consuming. If college fee policies change tomorrow, you cannot easily retrain the entire model. With RAG, you simply update the text document in the knowledge base, and the AI immediately gives the updated answer.</p>
+    
+    <div class="page-break"></div>
+    <h1>RAG in AdmissionAI: Use Cases and Limitations</h1>
+    
+    <h3>Context-Bound and Authorized Retrieval</h3>
+    <p>In AdmissionAI, a student cannot just ask general questions; the RAG assistant is deeply integrated with the application context. It enforces <strong>Role-Based Access Control (RBAC)</strong>. When Student A asks a question, the retrieval engine is mathematically bound to only search Student A's data and public institutional knowledge. It is impossible for it to retrieve Student B's data.</p>
+    
+    <h3>Use Case Examples</h3>
+    <ul>
+        <li><strong>Document Checklist:</strong> Student: "What documents are pending?"<br>
+        <em>Retrieval: Student's dynamic checklist status. The LLM replies with exactly what is missing.</em></li>
+        <li><strong>Fee Information:</strong> Student: "How much is the hostel fee?"<br>
+        <em>Retrieval: Institutional hostel fee policy document. The LLM answers without hallucinating incorrect amounts.</em></li>
+        <li><strong>Insufficient Evidence:</strong> Student: "Who is my roommate?"<br>
+        <em>Retrieval: No matching documents. The LLM falls back to "I do not have sufficient evidence to answer that," preventing hallucination.</em></li>
+    </ul>
+    
+    <h3>Current Implementation Boundary</h3>
+    <p>AdmissionAI currently implements the entire retrieval logic, RBAC context binding, and citation validation infrastructure. To facilitate automated testing without requiring expensive OpenAI API keys, the generation step uses a <code>MockLLM Adapter</code>.</p>
+    <div class="callout">
+        <strong>Panel Note:</strong> The architecture demonstrates how to secure RAG in a sensitive educational context. Deploying a production LLM is a future scope requiring institutional budget and API integration.
+    </div>
+    
+    <div class="page-break"></div>
+    <h1>Technology Stack: What, Why, and Where</h1>
+    <p>You must be able to justify why these specific technologies were chosen for the project.</p>
+    
+    <table>
+        <tr>
+            <th>Technology</th>
+            <th>What it is & Why it is used</th>
+            <th>Where it appears</th>
+        </tr>
+        <tr>
+            <td><strong>Python 3.11+</strong></td>
+            <td>The industry standard for AI and Data engineering. Selected for its vast AI library ecosystem.</td>
+            <td>Backend Core, OCR, RAG logic.</td>
+        </tr>
+        <tr>
+            <td><strong>FastAPI</strong></td>
+            <td>A modern, high-performance web framework for building APIs. Chosen over Django for speed and native async support.</td>
+            <td>API Layer, exposing backend endpoints to the frontend.</td>
+        </tr>
+        <tr>
+            <td><strong>PostgreSQL</strong></td>
+            <td>A powerful, open-source relational database. Essential for maintaining strict relational integrity in admission workflows.</td>
+            <td>Persistence Layer (Database).</td>
+        </tr>
+        <tr>
+            <td><strong>React & TypeScript</strong></td>
+            <td>React builds dynamic UIs; TypeScript ensures type safety, preventing frontend bugs during data handling.</td>
+            <td>Frontend User Interfaces (Student & Staff portals).</td>
+        </tr>
+        <tr>
+            <td><strong>OpenCV</strong></td>
+            <td>Open Source Computer Vision Library. Used to programmatically clean up images (deskew, binarize) before OCR.</td>
+            <td>Intelligence Layer (Image Preprocessing).</td>
+        </tr>
+        <tr>
+            <td><strong>Docker & Compose</strong></td>
+            <td>Containerization tools. Guarantees the application runs identically on any machine, eliminating "it works on my machine" errors.</td>
+            <td>Development & Deployment environment.</td>
+        </tr>
+    </table>
+    <br>
+    <p><strong>What is an Adapter Pattern?</strong><br>
+    We use adapters (like MockTNEA, MockERP) to isolate the core logic from external systems. This means when the college provides real TNEA APIs, we only rewrite the adapter, without touching the core admission workflow.</p>
+    
+    <div class="page-break"></div>
+    <h1>AdmissionAI Compared with Existing Approaches</h1>
+    
+    <p>The uniqueness of AdmissionAI lies not in inventing OCR or LLMs, but in orchestrating them into a secure, state-managed admission lifecycle.</p>
+    
+    <h3>1. Vs. Manual Paper-Based Verification</h3>
+    <p>Manual verification causes extreme staff fatigue and requires physical document shuffling. AdmissionAI digitizes the documents, automates the reading, and only involves humans for final decision-making, drastically reducing manual data entry.</p>
+    
+    <h3>2. Vs. Standalone OCR Tools (e.g., Adobe, Google Vision)</h3>
+    <p>An OCR tool gives you text. It does not know what an "Application Form" is, nor does it know how to compare the extracted text against a TNEA allotment database. AdmissionAI provides domain-specific structured extraction and reconciliation.</p>
+    
+    <h3>3. Vs. Conventional Document Management Systems (DMS)</h3>
+    <p>A DMS stores files and tracks versions. AdmissionAI actively reads the contents of the files, mathematically audits them for discrepancies, and controls the student's admission state machine based on the findings.</p>
+    
+    <h3>4. Vs. Generic FAQ Chatbots</h3>
+    <p>A generic chatbot gives the same canned response to everyone. AdmissionAI’s RAG assistant is context-bound via RBAC. It knows the specific student's state and answers questions based on their exact pending requirements and authorized institutional documents.</p>
+    
+    <h3>5. Vs. Fully Automated AI Decisions</h3>
+    <p>Some commercial systems attempt to automatically approve or reject candidates. AdmissionAI enforces a <strong>Human-in-the-Loop</strong> governance model, recognizing that college admissions are high-stakes and legally sensitive; AI should assist, not override, authorized personnel.</p>
+    
+    <div class="page-break"></div>
+    <h1>Outcomes, RMK Pitch, and Future Campus Vision</h1>
+    
+    <h3>Expected Outcomes for Admission Staff & Students</h3>
+    <ul>
+        <li><strong>Radical reduction in manual data entry:</strong> Fields are extracted automatically.</li>
+        <li><strong>Immediate identification of discrepancies:</strong> No more waiting days to find out a name was misspelled.</li>
+        <li><strong>Transparent Auditability:</strong> Every action is logged immutably.</li>
+        <li><strong>Real-time Status Visibility:</strong> Students know exactly where their application is.</li>
+    </ul>
+    
+    <h3>How to Pitch to RMK Engineering College (Pilot Proposal)</h3>
+    <p>To evaluate this system at RMK, a future institution-approved pilot is required. The pilot should measure:</p>
+    <ul>
+        <li>Average staff processing time per candidate (Current vs AdmissionAI).</li>
+        <li>OCR field-extraction precision and recall on real RMK admission documents.</li>
+        <li>Volume of repetitive support calls handled by the RAG assistant.</li>
+    </ul>
+    
+    <h3>Future Campus-Wide Expansion (Scope)</h3>
+    <p>If authorized, this exact workflow architecture (Intelligent ingestion → State machine → Verification → RAG assistance) can be expanded to manage the entire campus:</p>
+    <ul>
+        <li><strong>Hostel & Mess:</strong> Automating room allocations, meal plan tracking, and answering policy queries.</li>
+        <li><strong>Transport:</strong> Bus route assignments based on extracted residential data.</li>
+        <li><strong>Leave & OD Workflows:</strong> Digitizing paper-based leave approvals into auditable state machines.</li>
+        <li><strong>Academic Operations:</strong> RAG agents capable of answering student queries about exam timetables grounded in official circulars.</li>
+    </ul>
+    
+    <div class="page-break"></div>
+    <h1>Presentation Guide: Slide 1 to Slide 5</h1>
+    
+    <h3>Slide 1: Title Slide</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Introduce the project identity confidently.</li>
+        <li><strong>Script (45s):</strong> "Good morning respected panel members. My name is [Name], and I am presenting my M.E. final year project titled AdmissionAI: OCR-Based Document Intelligence and RAG-Assisted Admission Workflow, guided by [Guide Name]. AdmissionAI is a unified platform designed to automate and secure the college admission process from TNEA allotment all the way to student onboarding."</li>
+        <li><strong>Transition:</strong> "Let me explain the problem we are solving."</li>
+    </ul>
+    
+    <h3>Slide 2: Project Overview</h3>
+    <ul>
+        <li><strong>Purpose:</strong> High-level summary of the methodology.</li>
+        <li><strong>Script (60s):</strong> "We address the fragmentation in current admission tools. Our methodology utilizes OpenCV and OCR for data extraction, rule-based logic for discrepancy reconciliation, and a context-bound RAG assistant for student queries. The prototype is fully tested with 166 automated backend tests."</li>
+        <li><strong>Question to Expect:</strong> "Is this deployed?" <em>Answer: "This is a prototype demonstrated using synthetic data and mock external adapters, designed to prove the architecture."</em></li>
+    </ul>
+    
+    <h3>Slide 3: Explicitly Unique to Existing Systems</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Prove your project is more than just a wrapper around OCR.</li>
+        <li><strong>Script (60s):</strong> "Unlike generic OCR, we enforce deterministic structured extraction with bounding-box provenance. Unlike manual checking, we use mathematical discrepancy reconciliation. Importantly, we enforce Human-in-the-Loop auditability—the AI flags issues, but staff make decisions. Furthermore, our RAG model enforces strict Role-Based Access Control to prevent data leaks."</li>
+    </ul>
+    
+    <h3>Slide 4: Problem Statement and Gaps</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Ground the project in real administrative pain.</li>
+        <li><strong>Script (45s):</strong> "Currently, manual scrutiny of scanned documents leads to staff fatigue. Fragmented systems require repeated data entry, which mathematically increases errors. Students face opaque application status, leading to repetitive support queries."</li>
+    </ul>
+    
+    <h3>Slide 5: Methodology: Flow, OCR, and RAG</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Define the technical approach.</li>
+        <li><strong>Script (60s):</strong> "Our workflow uses a Directed Acyclic Graph (DAG) for state transitions. The OCR methodology utilizes OpenCV for deskewing and Regex for deterministic extraction. The RAG methodology uses vector similarity search filtered by the user's active authorization."</li>
+        <li><strong>Mistake to Avoid:</strong> Do not read the slide text word-for-word. Summarize the concepts.</li>
+    </ul>
+    
+    <div class="page-break"></div>
+    <h1>Presentation Guide: Slide 6 to Slide 10</h1>
+    
+    <h3>Slide 6: End-to-End System Workflow</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Show the massive scale of the admission lifecycle.</li>
+        <li><strong>Script (90s):</strong> "This diagram represents the entire student journey. It begins with the TNEA Allotment intake and Student Activation. The student uploads documents, triggering the Document Intelligence and Cross-Doc Reconciliation engines. Discrepancies drop into Human Scrutiny, which can trigger a correction feedback loop. Verified records move to Physical Verification, Payment, and finally ERP Staging and Onboarding."</li>
+        <li><strong>Question to Expect:</strong> "What happens if a document is wrong?" <em>Answer: "Human scrutiny triggers the correction loop, returning the student to the digital application phase to re-upload."</em></li>
+    </ul>
+    
+    <h3>Slide 7: System Architecture</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Demonstrate software architecture competence.</li>
+        <li><strong>Script (60s):</strong> "We utilize a 6-layer modular monolith. The React Frontend talks to a FastAPI secure layer. The Domain layer manages the state machine, while the Intelligence layer handles OpenCV and RAG. PostgreSQL handles persistence. External systems like TNEA and ERP are isolated using Mock Adapters to ensure future deployability."</li>
+    </ul>
+    
+    <h3>Slide 8: Detailed Implementations</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Break down the algorithms.</li>
+        <li><strong>Script (60s):</strong> "Phase A is Document Intelligence, relying on heuristics, OpenCV contour mapping, and Regex coordinate targeting. Phase B is RAG, enforcing JWT authentication, KNN similarity search, and explicit citation validation against retrieved source chunks."</li>
+    </ul>
+    
+    <h3>Slide 9: Document Intelligence Pipeline</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Zoom in on how OCR translates to business logic.</li>
+        <li><strong>Script (60s):</strong> "When a document is uploaded, it is preprocessed and passed to the OCR engine. We extract structured fields and track confidence. Crucially, the Reconciliation node compares these fields against baseline data. The final output is mathematically flagged data waiting for authorized human scrutiny."</li>
+    </ul>
+    
+    <h3>Slide 10: Human Authority & RAG Assistant</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Explain governance and AI assistance.</li>
+        <li><strong>Script (60s):</strong> "Governance is key. Staff review OCR output side-by-side with the original document, leaving a cryptographically solid audit log. Concurrently, the RAG assistant authenticates the student and generates context-grounded responses, actively refusing to hallucinate if evidence is insufficient."</li>
+    </ul>
+    
+    <div class="page-break"></div>
+    <h1>Presentation Guide: Slide 11 to Slide 15</h1>
+    
+    <h3>Slide 11: Implemented Modules & Evidence</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Prove the volume of work completed.</li>
+        <li><strong>Script (45s):</strong> "We have successfully implemented the core Admission Lifecycle including mock ingestion and dynamic checklists. The Intelligence module features immutable versioning and rule-based reconciliation. We also built the Assistance UI with onboarding tracking and RAG chat."</li>
+    </ul>
+    
+    <h3>Slide 12: Intermediate Results and Validation</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Show testing rigor with absolute honesty.</li>
+        <li><strong>Script (60s):</strong> "The system logic is validated through rigorous automated testing. We achieved 166 passing tests on the backend regression and zero frontend build errors. However, I want to be explicitly clear: these tests validate software behavior and workflow logic; they do not establish real-world OCR accuracy metrics, which requires a future production dataset."</li>
+        <li><strong>Mistake to Avoid:</strong> Never claim 100% OCR accuracy. Honesty about test boundaries demonstrates senior engineering maturity.</li>
+    </ul>
+    
+    <h3>Slide 13: Expected Operational Benefits</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Explain the practical impact on the college.</li>
+        <li><strong>Script (45s):</strong> "For staff, this means a radical reduction in manual data entry and transparent auditability. For students, it provides real-time visibility and 24/7 institutional guidance via the assistant. For the institution, it standardizes the entire workflow."</li>
+    </ul>
+    
+    <h3>Slide 14: Limitations and Future Scope</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Identify the prototype boundaries.</li>
+        <li><strong>Script (60s):</strong> "Currently, we rely on synthetic data and heavily deterministic extraction. Future scope includes authorized live ERP integrations, training custom visual models where deterministic rules fail, and deploying production-grade localized LLMs."</li>
+    </ul>
+    
+    <h3>Slide 15: Conclusion</h3>
+    <ul>
+        <li><strong>Purpose:</strong> Final strong closing statement.</li>
+        <li><strong>Script (45s):</strong> "In conclusion, AdmissionAI successfully upgrades unstructured images into structured discrepancy findings, orchestrates them through a strictly auditable state machine, forces deterministic human-in-the-loop decisions, and demonstrates the power of RBAC-secured RAG in a sensitive educational context. Thank you."</li>
+    </ul>
+    
+    <div class="page-break"></div>
+    <h1>Complete Viva Preparation & Quick Revision</h1>
+    
+    <h3>A. The Project in 30 Seconds</h3>
+    <p>"AdmissionAI is a college-side admission platform. It takes the student from TNEA allotment through onboarding. It uses OpenCV and OCR to extract data from uploaded documents, mathematically reconciles the data for discrepancies, presents them to human staff for secure verification, and provides a context-bound RAG assistant to answer student queries."</p>
+    
+    <h3>B. 10 Must-Remember Facts</h3>
+    <ol>
+        <li>It manages the process <strong>after</strong> TNEA allotment.</li>
+        <li>OCR just gets text; <strong>Structured Extraction</strong> gets the specific fields (Name, DOB).</li>
+        <li><strong>OpenCV</strong> cleans the image (deskew, binarize) before OCR reads it.</li>
+        <li><strong>Reconciliation</strong> compares extracted data to the application baseline.</li>
+        <li><strong>Human-in-the-loop:</strong> AI flags errors; Humans make the final admission decision.</li>
+        <li><strong>RAG (Retrieval-Augmented Generation)</strong> searches private documents to ground LLM answers.</li>
+        <li><strong>RBAC (Role-Based Access Control)</strong> ensures RAG only retrieves what the user is allowed to see.</li>
+        <li>The architecture is a <strong>Layered Modular Monolith</strong> using FastAPI, React, and PostgreSQL.</li>
+        <li>External systems (TNEA, ERP, LLM) are isolated using <strong>Mock Adapters</strong>.</li>
+        <li>The system creates an <strong>immutable audit trail</strong> of every action and document version.</li>
+    </ol>
+    
+    <h3>C. Rapid-Fire Viva Questions</h3>
+    <ul>
+        <li><strong>Q: Did you train the OCR model?</strong> A: No, we used a Tesseract abstraction. Our contribution is the deterministic extraction and reconciliation logic applied to the OCR output.</li>
+        <li><strong>Q: How do you prevent the AI from approving fake documents?</strong> A: The AI does not approve anything. It only extracts and flags discrepancies. Authorized staff perform the actual verification.</li>
+        <li><strong>Q: Why RAG instead of ChatGPT?</strong> A: ChatGPT hallucinates and doesn't know our private college policies. RAG retrieves our specific policy documents and generates an answer strictly based on them.</li>
+        <li><strong>Q: What does 'Deterministic' mean here?</strong> A: It means rule-based logic (like Regex) that produces the exact same output every time, rather than a probabilistic generative AI guess.</li>
+        <li><strong>Q: What database did you use?</strong> A: PostgreSQL, because admissions require strict relational integrity, transactions, and audit logging.</li>
+    </ul>
+    <br>
+    <p><em>(Please refer to Appendix A for the complete 100+ Question Bank).</em></p>
+    
+    <div class="page-break"></div>
+    <h1>Appendix A: 100+ Viva Question Bank</h1>
+    <p>This section provides a comprehensive list of questions categorized by topic. Use this to test your understanding before the review.</p>
+    
+    <h3>Category A: Project Fundamentals</h3>
+    <ol>
+        <li><strong>What is AdmissionAI?</strong> An intelligent college-side admission and onboarding platform.</li>
+        <li><strong>What problem does it solve?</strong> It eliminates fragmented manual document verification and repeated data entry by unifying the workflow.</li>
+        <li><strong>Why did you select this project?</strong> To solve the practical administrative bottlenecks observed during college admissions.</li>
+        <li><strong>Who are the intended users?</strong> Students, parents, admission staff, finance officers, and administrators.</li>
+        <li><strong>What is the difference between TNEA counselling and college-side admission?</strong> TNEA allots the seat; college admission verifies documents, collects fees, and enrolls the student.</li>
+        <li><strong>Why is a unified admission workflow needed?</strong> To prevent data silos, reduce errors, and provide real-time status visibility.</li>
+        <li><strong>What is the core contribution of your project?</strong> Integrating document intelligence, reconciliation, and RAG into a state-managed workflow.</li>
+        <li><strong>What is the most unique part of AdmissionAI?</strong> Deterministic discrepancy reconciliation combined with strict human-in-the-loop auditability.</li>
+        <li><strong>Is this just an OCR application?</strong> No, OCR is just one step. The logic of reconciliation and workflow management is the core.</li>
+        <li><strong>Is the project currently deployed at RMK?</strong> No, it is a prototype tested with synthetic data to prove the architecture.</li>
+    </ol>
+
+    <h3>Category B: Admission Workflow and Domain Knowledge</h3>
+    <ol start="11">
+        <li><strong>What happens after TNEA allotment?</strong> The student reports to the college for document verification and fee payment.</li>
+        <li><strong>How is allotment information obtained?</strong> Through an integration adapter (mocked in our prototype).</li>
+        <li><strong>What is the difference between allotment and admission confirmation?</strong> Allotment is a provisional seat; confirmation happens after the college verifies all eligibility criteria.</li>
+        <li><strong>Why is a dynamic checklist useful?</strong> Different students (e.g., First Graduate vs General) require different documents.</li>
+        <li><strong>Why are multiple admission documents required?</strong> To prove identity, age, academic qualification, and community status independently.</li>
+        <li><strong>What happens when a document is missing?</strong> The state machine blocks progression until uploaded.</li>
+        <li><strong>What happens when two documents disagree?</strong> The reconciliation engine flags it for human scrutiny.</li>
+        <li><strong>Why is physical verification still necessary?</strong> Digital uploads can be forged; seeing original physical copies is a legal requirement.</li>
+        <li><strong>How can a demand draft be handled?</strong> The finance module tracks payment verification states.</li>
+        <li><strong>What is ERP synchronization?</strong> Pushing the finalized admission record into the college's main ERP system.</li>
+        <li><strong>How can parents be included?</strong> Through isolated dashboards and RAG access for onboarding info.</li>
+        <li><strong>What is induction readiness?</strong> Ensuring the student has completed all prerequisites (hostel, transport) before classes start.</li>
+    </ol>
+    
+    <h3>Category C: OCR Fundamentals</h3>
+    <ol start="23">
+        <li><strong>What is OCR?</strong> Optical Character Recognition.</li>
+        <li><strong>How does OCR work?</strong> It analyzes pixel patterns to recognize letters.</li>
+        <li><strong>What is the difference between OCR and image classification?</strong> Classification identifies the document type; OCR reads the text inside it.</li>
+        <li><strong>What is structured extraction?</strong> Pulling specific fields (like Name) from raw OCR text blocks.</li>
+        <li><strong>Why is preprocessing needed?</strong> Raw scans are often blurry, noisy, or tilted.</li>
+        <li><strong>What is grayscale conversion?</strong> Removing color channels to simplify image processing.</li>
+        <li><strong>What is CLAHE?</strong> Contrast Limited Adaptive Histogram Equalization, used to improve contrast.</li>
+        <li><strong>What is deskewing?</strong> Rotating an image to perfectly horizontal alignment.</li>
+        <li><strong>What is thresholding?</strong> Converting pixels to strict black or white.</li>
+        <li><strong>What is binarization?</strong> Another term for thresholding.</li>
+        <li><strong>What is a bounding box?</strong> The X,Y coordinates defining where text lives on the page.</li>
+        <li><strong>What is OCR confidence?</strong> The engine's mathematical certainty that a character was read correctly.</li>
+        <li><strong>Why can OCR make mistakes?</strong> Due to bad lighting, handwriting, or visual artifacts.</li>
+        <li><strong>What is the role of OpenCV?</strong> It performs all the image preprocessing before OCR.</li>
+        <li><strong>What is Tesseract?</strong> A popular open-source OCR engine.</li>
+        <li><strong>What is pytesseract?</strong> The Python wrapper used to communicate with Tesseract.</li>
+        <li><strong>What happens when OCR fails?</strong> The human verifier must manually input the data viewing the original image.</li>
+        <li><strong>Why is OCR output not sufficient for admission approval?</strong> OCR just reads text; it doesn't know if the text is true or consistent.</li>
+        <li><strong>How would OCR accuracy be evaluated?</strong> By comparing OCR output against a manually typed ground-truth dataset.</li>
+        <li><strong>Why is a real labeled dataset important for future model training?</strong> To train visual models on specific local document formats.</li>
+    </ol>
+
+    <h3>Category D: Structured Extraction and Reconciliation</h3>
+    <ol start="43">
+        <li><strong>What are deterministic rules?</strong> Fixed logical rules that produce the exact same result every time.</li>
+        <li><strong>What is a regular expression?</strong> A sequence of characters specifying a search pattern (e.g., finding dates).</li>
+        <li><strong>What is field-level provenance?</strong> Knowing exactly which document and coordinate a piece of data came from.</li>
+        <li><strong>What is document versioning?</strong> Tracking V1, V2 of uploads to maintain audit history if a student resubmits.</li>
+        <li><strong>What is cross-document reconciliation?</strong> Mathematically comparing fields across multiple documents.</li>
+        <li><strong>How does the system handle mismatched dates?</strong> It creates a discrepancy flag for human review.</li>
+        <li><strong>How are missing fields handled?</strong> The extraction engine flags them as 'Not Found'.</li>
+        <li><strong>Why flag rather than automatically reject?</strong> Algorithms make mistakes; rejecting a student automatically is administratively dangerous.</li>
+        <li><strong>What is the role of the human verifier?</strong> To provide legal/administrative authority over the final data.</li>
+        <li><strong>What is the difference between a discrepancy and fraud?</strong> A discrepancy might just be an OCR typo or a spelling mistake.</li>
+        <li><strong>Why is the application form considered a baseline?</strong> Because it represents the student's declared intent.</li>
+        <li><strong>How can future systems improve extraction?</strong> By using layout-aware deep learning models (like Donut or LayoutLM).</li>
+    </ol>
+
+    <div class="page-break"></div>
+    <h3>Category E: RAG and Chatbot</h3>
+    <ol start="55">
+        <li><strong>What is an LLM?</strong> Large Language Model.</li>
+        <li><strong>What is a chatbot?</strong> The conversational UI interacting with the LLM.</li>
+        <li><strong>What is RAG?</strong> Retrieval-Augmented Generation.</li>
+        <li><strong>Why use RAG instead of a generic chatbot?</strong> To provide answers grounded in private institutional data.</li>
+        <li><strong>What is a knowledge base?</strong> A vector database storing chunked institutional documents.</li>
+        <li><strong>What is a document chunk?</strong> A small, semantically meaningful piece of a larger document.</li>
+        <li><strong>What is retrieval?</strong> Searching the vector database for chunks similar to the user's query.</li>
+        <li><strong>What is generation?</strong> The LLM forming a natural language answer using the retrieved chunks.</li>
+        <li><strong>What is a citation?</strong> Proof showing which retrieved chunk generated the answer.</li>
+        <li><strong>How does citation validation work?</strong> Checking if the LLM's answer actually matches the source text.</li>
+        <li><strong>What is an insufficient-evidence response?</strong> The system politely refusing to answer if no relevant documents are found.</li>
+        <li><strong>What is the difference between RAG and model training?</strong> RAG provides external memory; training alters the model's internal brain.</li>
+        <li><strong>What is a hallucination?</strong> An LLM confidently stating false information.</li>
+        <li><strong>How can retrieval reduce unsupported answers?</strong> By forcing the LLM to only use the provided context window.</li>
+        <li><strong>Does RAG guarantee 100% accuracy?</strong> No, poor retrieval or poor prompt adherence can still cause errors.</li>
+        <li><strong>How does the assistant answer a pending-document query?</strong> By retrieving the student's state machine status via API.</li>
+        <li><strong>How does the assistant avoid revealing another student's info?</strong> Through RBAC enforcing strict namespace isolation.</li>
+        <li><strong>What is an active knowledge document?</strong> A currently approved policy (vs an outdated one).</li>
+        <li><strong>Why is MockLLM used in the prototype?</strong> To validate the architecture without requiring expensive API calls.</li>
+        <li><strong>What is required before using a real production LLM?</strong> Institutional budget, API keys, and rigorous prompt safety testing.</li>
+    </ol>
+
+    <h3>Category F: Technology Stack</h3>
+    <ol start="75">
+        <li><strong>Why Python?</strong> Dominant ecosystem for AI, OCR, and data manipulation.</li>
+        <li><strong>Why FastAPI?</strong> High performance, async support, and automatic OpenAPI docs.</li>
+        <li><strong>What is an API?</strong> Application Programming Interface; how the frontend talks to the backend.</li>
+        <li><strong>What is REST?</strong> Representational State Transfer; the architectural style of our API.</li>
+        <li><strong>What is Pydantic?</strong> Data validation library used in FastAPI.</li>
+        <li><strong>What is SQLAlchemy?</strong> An ORM mapping Python classes to PostgreSQL tables.</li>
+        <li><strong>What is Alembic?</strong> Handles database schema migrations over time.</li>
+        <li><strong>Why PostgreSQL?</strong> ACID-compliant relational DB, essential for transactional admission states.</li>
+        <li><strong>Why React?</strong> Component-based UI for complex interactive dashboards.</li>
+        <li><strong>Why TypeScript?</strong> Static typing prevents runtime bugs in the frontend.</li>
+        <li><strong>What is Vite?</strong> A blazing fast frontend build tool.</li>
+        <li><strong>What is Tailwind CSS?</strong> Utility-first CSS framework for rapid UI styling.</li>
+        <li><strong>What is Docker?</strong> Containerization engine to package the app and dependencies.</li>
+        <li><strong>What is Docker Compose?</strong> Orchestrates multi-container applications (DB, Backend, Frontend).</li>
+        <li><strong>Why use a modular monolith?</strong> Easier to deploy and test than microservices for a prototype.</li>
+        <li><strong>What is an adapter pattern?</strong> Wrapping external API logic so the core app remains decoupled.</li>
+        <li><strong>Why separate frontend and backend?</strong> Allows scaling them independently and supports future mobile apps.</li>
+        <li><strong>Why private document storage?</strong> Security; uploaded documents contain highly sensitive PII.</li>
+        <li><strong>What is SHA-256 used for?</strong> Generating unique checksums to verify document version integrity.</li>
+    </ol>
+
+    <h3>Category G & H: Architecture, Security, Outcomes, Future Scope</h3>
+    <ol start="94">
+        <li><strong>What is Role-Based Access Control?</strong> Restricting system access based on user roles (Student vs Admin).</li>
+        <li><strong>Why is audit history important?</strong> To trace exactly who verified a document and when.</li>
+        <li><strong>What is synthetic data?</strong> Fake data generated for testing to protect real student privacy.</li>
+        <li><strong>What results have been obtained?</strong> 166 passing backend regression tests validating the logic.</li>
+        <li><strong>Does successful testing prove OCR accuracy?</strong> No, it only proves the software handles the OCR output correctly.</li>
+        <li><strong>How could time savings be measured?</strong> By running a controlled pilot tracking average processing time per candidate.</li>
+        <li><strong>How could the project be extended to hostel workflows?</strong> By reusing the exact same state machine and document upload architecture.</li>
+        <li><strong>What is the biggest technical challenge remaining?</strong> Achieving high OCR accuracy on diverse, real-world Indian academic certificates.</li>
+    </ol>
+    </body></html>
