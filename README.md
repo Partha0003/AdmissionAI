@@ -6,6 +6,60 @@
 
 ---
 
+#### Terminal 1 — Backend (FastAPI + Python)
+
+```bash
+# 1. Ensure you are at the repository root
+cd d:\ME-PROJECT
+
+# 2. Activate Python Virtual Environment
+# Windows PowerShell:
+.\venv\Scripts\activate
+# Windows Command Prompt (CMD):
+venv\Scripts\activate.bat
+# Linux / macOS:
+source venv/bin/activate
+
+# 3. Install/Update Backend Dependencies (FastAPI, OpenCV, PyMuPDF, Pytesseract, SQLAlchemy, etc.)
+pip install -r backend/requirements.txt
+
+# 4. Run Database Migrations (Alembic)
+cd backend
+alembic upgrade head
+cd ..
+
+# 5. Seed Database with Demo Accounts and Synthetic Student Personas
+python scripts/seed_database.py
+
+# 6. Start FastAPI Development Server
+cd backend
+uvicorn app.main:app --reload --port 8000
+```
+
+- **Backend API URL:** `http://localhost:8000`
+- **Interactive Swagger API Documentation:** `http://localhost:8000/docs`
+- **ReDoc Documentation:** `http://localhost:8000/redoc`
+
+---
+
+#### Terminal 2 — Frontend (React + TypeScript + Vite)
+
+```bash
+# 1. Open a new terminal and navigate to the frontend directory
+cd d:\ME-PROJECT\frontend
+
+# 2. Install NPM Packages (if not already installed)
+npm install
+
+# 3. Start Vite Development Server
+npm run dev
+```
+
+- **Frontend Application URL:** `http://localhost:5173`
+
+---
+
+
 ## 1. Project Overview & Vision
 
 **AdmissionAI** coordinates and automates the higher education engineering admission journey from centralized counselling (TNEA) seat allotment to first-year classroom onboarding. The architecture delivers:
@@ -75,58 +129,6 @@ The project consists of a FastAPI backend and a React + Vite frontend. Run them 
 
 ---
 
-#### Terminal 1 — Backend (FastAPI + Python)
-
-```bash
-# 1. Ensure you are at the repository root
-cd d:\ME-PROJECT
-
-# 2. Activate Python Virtual Environment
-# Windows PowerShell:
-.\venv\Scripts\activate
-# Windows Command Prompt (CMD):
-venv\Scripts\activate.bat
-# Linux / macOS:
-source venv/bin/activate
-
-# 3. Install/Update Backend Dependencies (FastAPI, OpenCV, PyMuPDF, Pytesseract, SQLAlchemy, etc.)
-pip install -r backend/requirements.txt
-
-# 4. Run Database Migrations (Alembic)
-cd backend
-alembic upgrade head
-cd ..
-
-# 5. Seed Database with Demo Accounts and Synthetic Student Personas
-python scripts/seed_database.py
-
-# 6. Start FastAPI Development Server
-cd backend
-uvicorn app.main:app --reload --port 8000
-```
-
-- **Backend API URL:** `http://localhost:8000`
-- **Interactive Swagger API Documentation:** `http://localhost:8000/docs`
-- **ReDoc Documentation:** `http://localhost:8000/redoc`
-
----
-
-#### Terminal 2 — Frontend (React + TypeScript + Vite)
-
-```bash
-# 1. Open a new terminal and navigate to the frontend directory
-cd d:\ME-PROJECT\frontend
-
-# 2. Install NPM Packages (if not already installed)
-npm install
-
-# 3. Start Vite Development Server
-npm run dev
-```
-
-- **Frontend Application URL:** `http://localhost:5173`
-
----
 
 ### Option B: Running with Docker Compose
 
